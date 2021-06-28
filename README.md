@@ -11,3 +11,8 @@
 - For XAMPP , place this folder in htdocs folder. then start the apache server and visit the foldar using localhost/photo-upload-using-js
 
 
+## Upcoming Feature
+- Multiple Image upload
+- Progress Bar
+- Bootstrap 
+
