@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JS Image Preview | Onchange event</title>
+    <style>
+        html,body{
+            height: 100vh;
+        }
+        .container{
+            height: 100vh;
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            background-color: rgb(224, 224, 224);
+        }
+        .container>div{
+            width:400px;
+            background-color: white;
+            border-radius:10px;
+            padding: 10px;;
+        }
+        .form-area{
+            width:100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .form-area label{
+            text-align: center;
+            text-transform: uppercase;
+            font-size: 18px;
+            background-color: blueviolet;
+            color: white;
+            padding: 10px 40px;
+            margin: 50px auto;
+            display: inline-block;
+            cursor: pointer;
+            transition:500ms;
+        }
+
+        .form-area label:hover{
+            background-color: rgb(108, 19, 190);
+        }
+
+        .form-area input[type="file"]{
+            display: none;
+        }
+        .preview{
+            border: 1px dashed rgba(0,0,0.5);
+            padding: 5px;
+            
+        }
+        .preview img{
+            width: 100%;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div>
+            <div class="form-area">
+                <label for="photo">Upload Photo</label>
+                <input type="file" name="photo" id="photo" onchange="showPreview(event)"  accept="image/*">
+            </div>
+            <div class="preview">
+                <img id="photo-preview">
+            </div>
+        </div>
+        
+    </div>
+    
+    <script>
+        function showPreview(event){
+            if(event.target.files.length>0){
+                const fullData=event.target.files[0]; //Full Data
+                const name=event.target.files[0].name;
+                const size=event.target.files[0].size;
+                const type=event.target.files[0].type;
+                console.log(fullData);
+                console.log('Photo Uploaded','Name:'+name,'Size:'+size,'type'+type);
+                //Here is the View Code
+                const src=URL.createObjectURL(fullData);
+                console.log(src);
+                const preview=document.getElementById('photo-preview');
+                preview.src=src;
+            }
+        }
+    </script>
+</body>
+</html>
