@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      html,
+      body {
+        height: 100vh;
+      }
+      .container {
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: rgb(224, 224, 224);
+      }
+      .container > div {
+        width: 400px;
+        background-color: white;
+        border-radius: 10px;
+        padding: 10px;
+      }
+      .form-area {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+        text-align: center;
+      }
+      .form-area .img-label {
+        text-align: center;
+        text-transform: uppercase;
+        font-size: 18px;
+        background-color: blueviolet;
+        color: white;
+        padding: 10px 40px;
+        margin: 50px auto 10px;
+        display: inline-block;
+        cursor: pointer;
+        transition: 500ms;
+      }
+
+      .form-area input[type='file'] {
+        display: none;
+      }
+
+      .form-area .img-label:hover {
+        background-color: rgb(108, 19, 190);
+      }
+
+      .preview {
+        border: 1px dashed rgba(0, 0, 0.5);
+        padding: 5px;
+      }
+      .preview img {
+        width: 100%;
+      }
+    </style>
+    <title>File Upload Using HTML, PHP No js!</title>
+  </head>
+  <body>
+    <form
+      id="frmImage"
+      class="form-area"
+      action="phpUpload.php"
+      enctype="multipart/form-data"
+      method="POST"
+    >
+      <h4>Form using HTML, PHP</h4>
+      <label class="img-label" for="image">Select image</label>
+      <input type="file" name="image" id="image" />
+      <button type="submit" name="submit">Upload Now</button>
+    </form>
+  </body>
+</html>
